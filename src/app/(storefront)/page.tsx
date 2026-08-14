@@ -23,11 +23,11 @@ export default function HomePage() {
 
   return (
     <div className="space-y-16 pb-20">
-      {/* 1. Hero Banner Carousel */}
-      <HeroCarousel />
-
-      {/* 2. Trust Marquee */}
-      <TrustBadges />
+      {/* 1. Hero Banner & Trust Marquee Grouped */}
+      <div>
+        <HeroCarousel />
+        <TrustBadges />
+      </div>
 
       {/* 3. Shop by Bracelet Category Horizontal Scroll */}
       <section className="max-w-[1440px] mx-auto px-6 sm:px-12">
