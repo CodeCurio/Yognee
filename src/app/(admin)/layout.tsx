@@ -71,14 +71,18 @@ export default function AdminLayout({
       <aside className="w-64 bg-white border-r border-neutral-200 flex flex-col justify-between flex-shrink-0 z-20">
         <div>
           {/* Header Branding */}
-          <div className="p-6 border-b border-neutral-100 flex items-center justify-between">
-            <div>
-              <span className="font-serif text-xl font-bold text-foreground-primary">
-                AURA Control
-              </span>
-              <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full block w-fit mt-0.5">
-                ADMIN CONSOLE
-              </span>
+          <div className="p-5 border-b border-neutral-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/yoginee-logo.png" alt="Yoginee Admin" className="h-8 w-auto" />
+              <div>
+                <span className="font-serif text-sm font-bold text-foreground-primary block">
+                  Yoginee Admin
+                </span>
+                <span className="text-[9px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded block w-fit">
+                  ASTRO CONSOLE
+                </span>
+              </div>
             </div>
             <Link
               href="/"
