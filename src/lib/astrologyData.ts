@@ -179,7 +179,7 @@ export const YOGINEE_HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-2",
-    image_url: "/images/banner2.png",
+    image_url: "/images/cosmos-banner.jpg",
     heading: "Decode the Cosmos. Discover Your True Path.",
     subheading: "Sacred Navgraha, Pyrite Prosperity & 7-Chakra Healing Bracelets.",
     cta_text: "Shop Zodiac Collection",
@@ -189,7 +189,7 @@ export const YOGINEE_HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-3",
-    image_url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1600&q=80",
+    image_url: "/images/yantra-cosmos-banner.jpg",
     heading: "Pyrite Prosperity & Evil Eye Protection Bracelets",
     subheading: "Consecrated with Vedic mantras for wealth, luck, and ultimate protection.",
     cta_text: "Shop Wealth Bracelets",
