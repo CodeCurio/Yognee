@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, ShoppingBag, Heart, User as UserIcon, Menu, X, Sparkles, PhoneCall, ChevronDown, Compass, Shield, Flame, Gem } from "lucide-react";
+import { Search, ShoppingBag, Heart, User as UserIcon, Menu, X, Sparkles, PhoneCall, ChevronDown, Compass } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
-import { MAIN_BRACELET_CATEGORIES, BRACELET_SUB_CATEGORIES, RASHI_LIST } from "@/lib/astrologyData";
+import { MAIN_BRACELET_CATEGORIES, RASHI_LIST } from "@/lib/astrologyData";
 
 interface HeaderProps {
   onOpenSearch: () => void;
@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
   return (
     <>
       {/* 1. Top Announcement Bar */}
-      <div className="bg-[#12001C] text-foreground-primary text-xs py-2 px-4 border-b border-gold/30 shadow-md">
+      <div className="bg-[#12001C] text-foreground-primary text-xs py-2 px-4 border-b border-gold/30 shadow-sm">
         <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
           <div className="hidden md:flex items-center gap-2 text-gold-light font-medium text-[11px]">
             <Sparkles className="h-3.5 w-3.5 text-gold animate-pulse" />
@@ -55,76 +55,76 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
         </div>
       </div>
 
-      {/* 2. Main Refined Luxury Header */}
+      {/* 2. Main Professional Luxury Header */}
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-[#1C0028] border-b border-gold/40 shadow-[0_10px_35px_rgba(0,0,0,0.9)] py-2.5"
-            : "bg-[#1F002C] border-b border-gold/25 py-3.5"
+            ? "bg-[#1C0028] border-b border-gold/40 shadow-[0_10px_35px_rgba(0,0,0,0.9)] py-3"
+            : "bg-[#1F002C] border-b border-gold/25 py-4"
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 flex items-center justify-between gap-4">
           
-          {/* LEFT: Official Logo Display */}
+          {/* LEFT: Clean Logo */}
           <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={() => setMobileMenuOpen(true)}
               className="lg:hidden p-2 rounded-lg bg-[#2B003B] border border-border text-gold hover:text-white transition-colors"
               aria-label="Open menu"
             >
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5" />
             </button>
 
-            <Link href="/" className="flex items-center py-1 shrink-0">
+            <Link href="/" className="flex items-center shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/yoginee-logo.png"
                 alt="Yoginee Astrology"
-                className="h-11 sm:h-13 lg:h-14 w-auto object-contain drop-shadow-[0_0_12px_rgba(212,175,55,0.4)]"
+                className="h-10 sm:h-12 lg:h-13 w-auto object-contain drop-shadow-[0_0_12px_rgba(212,175,55,0.35)]"
               />
             </Link>
           </div>
 
-          {/* CENTER: Clean Spacious Nav Hubs */}
-          <nav className="hidden lg:flex items-center gap-2 xl:gap-4">
+          {/* CENTER: Professional Single-Line Navigation Items (No Emojis, No Wrap) */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             
-            {/* Hub 1: Bracelet Collections Dropdown */}
+            {/* Nav 1: Collections */}
             <div
-              className="relative py-2"
+              className="relative py-1"
               onMouseEnter={() => setActiveDropdown("collections")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <Link
                 href="/products"
-                className={`px-3.5 py-2 rounded-lg text-xs font-extrabold uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-1.5 ${
                   activeDropdown === "collections"
-                    ? "text-gold bg-[#2B003B] border border-gold/40 shadow-md"
+                    ? "text-gold bg-[#2B003B] border border-gold/40"
                     : "text-foreground-primary hover:text-gold hover:bg-[#2B003B]/60"
                 }`}
               >
-                <span>📿 Bracelet Collections</span>
+                <span>Bracelet Collections</span>
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform ${activeDropdown === "collections" ? "rotate-180 text-gold" : "text-foreground-muted"}`} />
               </Link>
 
-              {/* 100% Solid Opaque Dropdown Menu */}
+              {/* Solid 100% Opaque Dropdown */}
               <AnimatePresence>
                 {activeDropdown === "collections" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
+                    exit={{ opacity: 0, y: 4 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 w-[320px] bg-[#1D002A] border-2 border-gold/50 rounded-xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)] z-50"
+                    className="absolute top-full left-0 w-[280px] bg-[#1D002A] border-2 border-gold/50 rounded-xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)] z-50"
                   >
                     <div className="text-[11px] font-extrabold uppercase tracking-widest text-gold pb-2 mb-2 border-b border-gold/30">
-                      Explore Energy Bracelets
+                      Energy Bracelet Collections
                     </div>
                     <ul className="space-y-1">
                       {MAIN_BRACELET_CATEGORIES.map((cat) => (
                         <li key={cat.id}>
                           <Link
                             href={`/products?category=${cat.slug}`}
-                            className="text-xs font-semibold text-foreground-primary hover:text-gold transition-colors flex items-center justify-between py-2 px-3 rounded-lg hover:bg-[#2F0042] border border-transparent hover:border-gold/20"
+                            className="text-xs font-semibold text-foreground-primary hover:text-gold transition-colors flex items-center justify-between py-2 px-3 rounded-lg hover:bg-[#2F0042]"
                           >
                             <span>{cat.name}</span>
                             <span className="text-[10px] text-gold font-bold">→</span>
@@ -132,59 +132,50 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-3 pt-2 border-t border-gold/30 text-center">
-                      <Link
-                        href="/products"
-                        className="w-full inline-block py-2 bg-gold-gradient text-background-primary rounded-lg font-bold text-xs uppercase tracking-wider shadow-gold"
-                      >
-                        View All Bracelets →
-                      </Link>
-                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Hub 2: Zodiac Signs Dropdown */}
+            {/* Nav 2: Zodiac */}
             <div
-              className="relative py-2"
+              className="relative py-1"
               onMouseEnter={() => setActiveDropdown("zodiac")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <Link
                 href="/products?category=zodiac"
-                className={`px-3.5 py-2 rounded-lg text-xs font-extrabold uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-1.5 ${
                   activeDropdown === "zodiac"
-                    ? "text-gold bg-[#2B003B] border border-gold/40 shadow-md"
+                    ? "text-gold bg-[#2B003B] border border-gold/40"
                     : "text-foreground-primary hover:text-gold hover:bg-[#2B003B]/60"
                 }`}
               >
-                <span>🔮 Zodiac (Rashi)</span>
+                <span>Zodiac (Rashi)</span>
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform ${activeDropdown === "zodiac" ? "rotate-180 text-gold" : "text-foreground-muted"}`} />
               </Link>
 
-              {/* 100% Solid Opaque Dropdown Menu */}
+              {/* Solid 100% Opaque Dropdown */}
               <AnimatePresence>
                 {activeDropdown === "zodiac" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
+                    exit={{ opacity: 0, y: 4 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 w-[340px] bg-[#1D002A] border-2 border-gold/50 rounded-xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)] z-50"
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-[320px] bg-[#1D002A] border-2 border-gold/50 rounded-xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)] z-50"
                   >
                     <div className="text-[11px] font-extrabold uppercase tracking-widest text-gold pb-2 mb-2 border-b border-gold/30">
                       12 Rashi Birthstone Bracelets
                     </div>
-                    <div className="grid grid-cols-2 gap-1.5 max-h-[300px] overflow-y-auto pr-1">
+                    <div className="grid grid-cols-2 gap-1 max-h-[280px] overflow-y-auto pr-1">
                       {RASHI_LIST.map((rashi) => (
                         <Link
                           key={rashi.name}
                           href={`/products?category=zodiac&tag=${encodeURIComponent(rashi.name.split(" ")[0])}`}
-                          className="text-xs font-medium text-foreground-primary hover:text-gold py-1.5 px-2 rounded hover:bg-[#2F0042] flex items-center gap-1.5"
+                          className="text-xs font-medium text-foreground-primary hover:text-gold py-1.5 px-2.5 rounded hover:bg-[#2F0042] truncate"
                         >
-                          <span className="text-sm">{rashi.icon}</span>
-                          <span className="truncate">{rashi.name.split(" ")[0]}</span>
+                          {rashi.name.split(" ")[0]}
                         </Link>
                       ))}
                     </div>
@@ -193,59 +184,59 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
               </AnimatePresence>
             </div>
 
-            {/* Hub 3: Vedic Tools & Services */}
+            {/* Nav 3: Vedic Tools */}
             <div
-              className="relative py-2"
-              onMouseEnter={() => setActiveDropdown("remedies")}
+              className="relative py-1"
+              onMouseEnter={() => setActiveDropdown("tools")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`px-3.5 py-2 rounded-lg text-xs font-extrabold uppercase tracking-wider transition-all flex items-center gap-1.5 ${
-                  activeDropdown === "remedies"
-                    ? "text-gold bg-[#2B003B] border border-gold/40 shadow-md"
+                className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                  activeDropdown === "tools"
+                    ? "text-gold bg-[#2B003B] border border-gold/40"
                     : "text-foreground-primary hover:text-gold hover:bg-[#2B003B]/60"
                 }`}
               >
-                <span>🕉️ Vedic Tools</span>
-                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${activeDropdown === "remedies" ? "rotate-180 text-gold" : "text-foreground-muted"}`} />
+                <span>Vedic Services</span>
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${activeDropdown === "tools" ? "rotate-180 text-gold" : "text-foreground-muted"}`} />
               </button>
 
-              {/* 100% Solid Opaque Dropdown Menu */}
+              {/* Solid 100% Opaque Dropdown */}
               <AnimatePresence>
-                {activeDropdown === "remedies" && (
+                {activeDropdown === "tools" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
+                    exit={{ opacity: 0, y: 4 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 w-[280px] bg-[#1D002A] border-2 border-gold/50 rounded-xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)] z-50"
+                    className="absolute top-full left-0 w-[260px] bg-[#1D002A] border-2 border-gold/50 rounded-xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)] z-50"
                   >
                     <div className="text-[11px] font-extrabold uppercase tracking-widest text-gold pb-2 mb-2 border-b border-gold/30">
-                      Vedic Astrology Services
+                      Vedic Science & Services
                     </div>
                     <ul className="space-y-1">
                       <li>
                         <Link
                           href="/chart-calculator"
-                          className="text-xs font-semibold text-foreground-primary hover:text-gold transition-colors flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-[#2F0042]"
+                          className="text-xs font-semibold text-foreground-primary hover:text-gold transition-colors block py-2 px-3 rounded-lg hover:bg-[#2F0042]"
                         >
-                          <span>🧭 Free Birth Chart (Kundli)</span>
+                          Free Birth Chart (Kundli)
                         </Link>
                       </li>
                       <li>
                         <Link
                           href="/consultations"
-                          className="text-xs font-semibold text-foreground-primary hover:text-gold transition-colors flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-[#2F0042]"
+                          className="text-xs font-semibold text-foreground-primary hover:text-gold transition-colors block py-2 px-3 rounded-lg hover:bg-[#2F0042]"
                         >
-                          <span>📞 1-on-1 Astrologer Session</span>
+                          Astrologer Consultation
                         </Link>
                       </li>
                       <li>
                         <Link
                           href="/#zodiac-widget"
-                          className="text-xs font-semibold text-foreground-primary hover:text-gold transition-colors flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-[#2F0042]"
+                          className="text-xs font-semibold text-foreground-primary hover:text-gold transition-colors block py-2 px-3 rounded-lg hover:bg-[#2F0042]"
                         >
-                          <span>🔮 Daily Rashi Horoscope</span>
+                          Daily Rashi Horoscope
                         </Link>
                       </li>
                     </ul>
@@ -254,16 +245,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
               </AnimatePresence>
             </div>
 
-            {/* Hub 4: Direct Consultation Link */}
+            {/* Nav 4: Consultations */}
             <Link
               href="/consultations"
-              className="px-3.5 py-2 rounded-lg text-xs font-extrabold uppercase tracking-wider text-gold bg-gold/15 border border-gold/40 hover:bg-gold/25 transition-all flex items-center gap-1.5"
+              className="px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider whitespace-nowrap text-gold bg-gold/15 border border-gold/40 hover:bg-gold/25 transition-all"
             >
-              <span>📞 Consultation</span>
+              Consultations
             </Link>
           </nav>
 
-          {/* RIGHT: Action Icons & Gold CTA */}
+          {/* RIGHT: Professional Clean Actions */}
           <div className="flex items-center gap-2 shrink-0">
             
             {/* Search Trigger */}
@@ -273,7 +264,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
               aria-label="Search"
             >
               <Search className="h-4 w-4 text-gold" />
-              <span className="hidden xl:inline text-xs font-semibold text-foreground-muted">Search</span>
+              <span className="hidden xl:inline text-xs font-semibold text-foreground-muted whitespace-nowrap">Search</span>
             </button>
 
             {/* Wishlist */}
@@ -313,7 +304,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
               aria-label="Shopping Cart"
             >
               <ShoppingBag className="h-4 w-4" />
-              <span className="hidden sm:inline text-xs font-extrabold uppercase tracking-wider">Cart</span>
+              <span className="hidden sm:inline text-xs font-bold uppercase tracking-wider whitespace-nowrap">Cart</span>
               {itemCount > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
@@ -329,7 +320,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
             {/* Book Session CTA */}
             <Link
               href="/consultations"
-              className="hidden sm:flex items-center gap-1.5 bg-gold-gradient text-background-primary px-3.5 py-2 rounded-lg text-xs font-extrabold uppercase tracking-wider shadow-gold hover:scale-105 transition-all"
+              className="hidden sm:flex items-center gap-1.5 bg-gold-gradient text-background-primary px-3.5 py-2 rounded-lg text-xs font-extrabold uppercase tracking-wider whitespace-nowrap shadow-gold hover:scale-105 transition-all"
             >
               <PhoneCall className="h-3.5 w-3.5" />
               <span>Book Session</span>
@@ -338,7 +329,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
         </div>
       </header>
 
-      {/* 3. Mobile Sidebar Drawer */}
+      {/* 3. Mobile Navigation Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -395,7 +386,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
                       onClick={() => setMobileMenuOpen(false)}
                       className="text-sm font-bold text-gold hover:text-white transition-colors py-2.5 px-3 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-between"
                     >
-                      <span>📞 Book Astrologer Session</span>
+                      <span>Book Astrologer Session</span>
                       <span className="text-xs">→</span>
                     </Link>
                     <Link
@@ -403,7 +394,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
                       onClick={() => setMobileMenuOpen(false)}
                       className="text-sm font-bold text-foreground-secondary hover:text-gold transition-colors py-2.5 px-3 rounded-lg flex items-center justify-between mt-1"
                     >
-                      <span>🧭 Free Birth Chart (Kundli) Tool</span>
+                      <span>Free Birth Chart (Kundli) Tool</span>
                       <span className="text-xs">→</span>
                     </Link>
                   </div>
@@ -416,7 +407,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenAuth }) => {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block text-center py-3 bg-gold-gradient text-background-primary rounded-lg font-bold text-xs uppercase tracking-wider shadow-gold"
                 >
-                  📞 Speak with Astrologer Now
+                  Speak with Astrologer Now
                 </Link>
               </div>
             </motion.div>
